@@ -1,0 +1,12 @@
+[
+  {
+    "tablename": "User",
+    "primaryFieldName": "id",
+    "primaryIndexName": "id"
+  },
+  {
+    "tablename": "Score",
+    "primaryFieldName": "id",
+    "primaryIndexName": "userId"
+  }
+]

@@ -1,0 +1,123 @@
+@use "textStylingMixin";
+
+.wrapper {
+  @include textStylingMixin.text-styles(0.9rem, 1rem);
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+
+  .form-wrapper {
+    background-color: white;
+    width: 35%;
+    height: 35%;
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+
+  form {
+
+    .fields-wrapper {
+      display: grid;
+      grid-template: 1fr 1fr 1fr / 1fr 1fr;
+      grid-auto-flow: column;
+      gap: 5%;
+      margin-top: 2rem;
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+
+        .tooltipText {
+          position: absolute;
+          z-index: 1;
+          width: 102%;
+          text-align: center;
+          padding: 5px 0;
+          border-radius: 6px;
+          background-color: white;
+          border: #2196F3 solid 1px;
+          top: 120%;
+
+          &::after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #2196F3 transparent;
+          }
+        }
+      }
+
+      input[type=text],
+      input[type=email] {
+        height: 100%;
+        width: 100%;
+        border: solid 1px rgba(177, 174, 174, 0.829);
+        border-radius: 0.2rem;
+        padding-left: 2%;
+      }
+
+      .wrong {
+        background-color: rgba($color: red, $alpha: 0.1);
+      }
+
+      .good {
+        background-color: rgba($color: green, $alpha: 0.1);
+      }
+
+      input[type=file] {
+        display: none;
+      }
+
+      img {
+        width: 40%;
+        border-radius: 50%;
+        align-self: center;
+        justify-self: center;
+        grid-area: 1 / 2 / 4 / 3;
+      }
+
+      canvas {
+        display: none;
+      }
+
+    }
+
+    button {
+      width: 5rem;
+      height: 2.3rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+
+    button[type=submit] {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    button[type=submit]:disabled {
+      background-color: rgba($color: #2196F3, $alpha: 1.0);
+      color: rgb(156, 156, 156);
+      cursor: not-allowed;
+    }
+
+    button[type=button] {
+      background-color: rgb(197, 253, 255);
+      color: #2196F3;
+      margin-left: 1rem;
+    }
+
+  }
+
+}

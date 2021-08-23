@@ -1,0 +1,143 @@
+@use "./common/textStylingMixin";
+@import './common/header.scss';
+
+.game {
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+
+  .timer {
+    margin-top: 1rem;
+    width: 15%;
+    background-color: white;
+    text-align: center;
+    @include textStylingMixin.text-styles(1.5rem, 3rem);
+  }
+
+  .gameField {
+    display: grid;
+    width: 80%;
+    gap: 0.3rem;
+    .card {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      transform-style: preserve-3d;
+      height: fit-content;
+
+
+
+      .face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: 0.3s ease-in-out;
+        transform: rotateY(0deg);
+
+        &.back{
+          transform: rotateY(180deg);
+        }
+      }
+
+      &.pushed {
+        .face{
+          &.back {
+            transform: rotateY(360deg);
+          }
+
+          &.front {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 10px rgb(0, 255, 0,);
+      }
+    }
+    .found {
+      background-color: rgba(128, 255, 128, 0.659)
+    }
+    .not-found {
+      background-color: rgba(253, 118, 118, 0.659)
+    }
+
+  }
+
+  .size-36 {
+    grid-template: repeat(6, 1fr)/repeat(6, 1fr);
+  }
+
+  .size-16 {
+    grid-template: repeat(4, 1fr)/repeat(4, 1fr);
+  }
+
+  .size-64 {
+    grid-template: repeat(8, 1fr)/repeat(8, 1fr);
+  }
+
+  button {
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    background-color:#2196f3;
+    border-radius: 1rem;
+    align-self: center;
+    cursor: pointer;
+    @include textStylingMixin.text-styles(1.3rem, 2rem);
+  }
+
+  .wrapper {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+
+}
+
+.form-wrapper-success {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 50%;
+  height: 20%;
+  align-items: center;
+  justify-content: space-around;
+
+  p {
+    @include textStylingMixin.text-styles(1rem, 2rem);
+  }
+
+  button {
+    width: 7rem;
+    height: 2rem;
+    color: white;
+    background-color:#2196f3;
+    border-radius: 1rem;
+    cursor: pointer;
+    @include textStylingMixin.text-styles(1.3rem, 2rem);
+  }
+}

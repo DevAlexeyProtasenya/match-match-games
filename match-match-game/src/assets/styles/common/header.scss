@@ -1,0 +1,101 @@
+@use "textStylingMixin";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import './clearDefault.scss';
+
+$main-color: #2196F3;
+
+header {
+  background-color: $main-color;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  width: 100%;
+  height: 100vh * 0.0625;
+
+  .logo {
+    display: block;
+    background-image: url('../../assets/images/header/logo.png');
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 2.5rem;
+    align-self: center;
+    margin-left: 10%;
+  }
+
+  nav {
+    margin-left: 10%;
+    width: 50%;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: 100%;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 6rem;
+      height: 100%;
+
+      &.active {
+        background-color: #0364b4;
+      }
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        text-decoration: none;
+        height: 100%;
+
+        img {
+          text-align: center;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        p {
+          text-align: center;
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 15px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .header__registration-button,
+  .header__play-button {
+    background-color: white;
+    box-shadow: 0 0 0.3rem rgba(0,0,0,0.5);
+    border-radius: 0.3rem;
+    height: 60%;
+    align-self: center;
+    @include textStylingMixin.text-styles(0.9rem, 1rem);
+    width: 11rem;
+    color: $main-color;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .registrated {
+    display: flex;
+    height: 100%;
+    align-self: center;
+
+    img {
+      margin-left: 1.5rem;
+      border-radius: 50%;
+      height: 90%;
+      align-self: center;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use './common/textStylingMixin';
+@import './common/header.scss';
+
+.settings {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 55%;
+  height: 15rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include textStylingMixin.text-styles(1.5rem, 3rem);
+  color: #2196f3;
+
+  ul {
+    padding-top: 2rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      select {
+        @include textStylingMixin.text-styles(1.3rem, 2rem);
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  button {
+    position: relative;
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    background-color:#2196f3;
+    border-radius: 1rem;
+    align-self: center;
+    cursor: pointer;
+    @include textStylingMixin.text-styles(1.3rem, 2rem);
+  }
+
+  .success {
+    display: none;
+    position: absolute;
+    width: 20%;
+    text-align: center;
+    left: 40%;
+    align-self: center;
+    color: green;
+    @include textStylingMixin.text-styles(1rem, 2rem);
+  }
+
+  button:disabled{
+    color: rgb(170, 170, 170);
+    background-color:#61b4f8;
+    cursor: not-allowed;
+  }
+}
